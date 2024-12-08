@@ -1,0 +1,46 @@
+{
+    "entity.spaetial.builder_allay": "Konstruktionsande",
+
+    "item.spaetial.builder_allay_spawn_egg": "Skapelseägg för konstruktionsande",
+
+    "spaetial.editing_state.normal.name": "Normalt",
+    "spaetial.editing_state.inactive.name": "Inaktivt",
+    "spaetial.editing_state.cuboid_selection.name": "Rätblocksurval",
+    "spaetial.editing_state.carve_selection.name": "Skulptera urval",
+    "spaetial.editing_state.cut.name": "Klipp ut",
+    "spaetial.editing_state.copy.name": "Kopiera",
+    "spaetial.editing_state.active_schematic_placement.name": "Aktiv ritning",
+    "spaetial.editing_state.place_schematic.name": "Placera ritning",
+
+    "spaetial.operation.copy.name": "Kopiera till urklipp",
+    "spaetial.operation.clone.name": "Kopiera region",
+    "spaetial.operation.line_stack.name": "Rada upp",
+    "spaetial.operation.volume_stack.name": "Stapla",
+    "spaetial.operation.replace.name": "Ersätt",
+    "spaetial.operation.complete_schematic.name": "Slutför ritning",
+
+    "gui.spaetial.screen.settings.title": "Inställningar",
+    "gui.spaetial.screen.schematics.title": "Sparade ritningar",
+    "gui.spaetial.screen.set_replace.title": "Ersätt block i region",
+    "gui.spaetial.screen.change_material.title": "Byt material",
+    "gui.spaetial.screen.filter_selection.title": "Filtrera urval",
+    "gui.spaetial.screen.create_schematic.title": "Skapa ritning",
+    "gui.spaetial.screen.selection_wheel.shape.title": "3D-former",
+    "gui.spaetial.screen.selection_wheel.paste.title": "Klistra in",
+    "gui.spaetial.screen.selection_wheel.selection_context_menu.title": "Urval",
+
+    "gui.spaetial.screen.confirm_action.title.operation": "Bekräfta operation av typ '%s'",
+    "gui.spaetial.screen.confirm_operation.title.undo": "Bekräfta ångring",
+    "gui.spaetial.screen.confirm_operation.title.redo": "Bekräfta omgörning",
+    "gui.spaetial.screen.confirm_operation.max_volume": "Maxvolym:  ",
+    "gui.spaetial.screen.confirm_operation.volume": "Volym:  ",
+    "gui.spaetial.screen.confirm_operation.op_warning": "[!] Operatörsbehörigheter krävs för att fortsätta",
+    "gui.spaetial.screen.confirm_operation.is_skippable": "Du kan välja att inte spara ändringen för att slutföra operationen snabbare",
+    "gui.spaetial.screen.confirm_operation.dont_save": "Bekräfta utan att spara",
+
+    "gui.spaetial.cancel": "Avbryt",
+    "gui.spaetial.confirm": "Bekräfta",
+
+    "system.spaetial.message.mod_on": "Satte PÅ Spaetial",
+    "system.spaetial.message.mod_off": "Stängde AV Spaetial"
+}

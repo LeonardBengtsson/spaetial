@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "spaetial.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BiomeAccessAccessor",
+    "BucketItemAccessor",
+    "ChainRestrictedNeighborUpdaterAccessor",
+    "PlayerEntityMixin",
+    "WorldChunkInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

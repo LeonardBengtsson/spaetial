@@ -1,0 +1,46 @@
+{
+    "entity.spaetial.builder_allay": "Builder Allay",
+
+    "item.spaetial.builder_allay_spawn_egg": "Builder Allay Spawn Egg",
+
+    "spaetial.editing_state.normal.name": "Normal",
+    "spaetial.editing_state.inactive.name": "Inactive",
+    "spaetial.editing_state.cuboid_selection.name": "Cuboid selection",
+    "spaetial.editing_state.carve_selection.name": "Carve selection",
+    "spaetial.editing_state.cut.name": "Cut",
+    "spaetial.editing_state.copy.name": "Copy",
+    "spaetial.editing_state.active_schematic_placement.name": "Active schematic placement",
+    "spaetial.editing_state.place_schematic.name": "Place schematic",
+
+    "spaetial.operation.copy.name": "Copy to clipboard",
+    "spaetial.operation.clone.name": "Clone",
+    "spaetial.operation.line_stack.name": "Line stack",
+    "spaetial.operation.volume_stack.name": "Volume stack",
+    "spaetial.operation.replace.name": "Replace",
+    "spaetial.operation.complete_schematic.name": "Complete schematic",
+
+    "gui.spaetial.screen.settings.title": "Settings",
+    "gui.spaetial.screen.schematics.title": "Schematics",
+    "gui.spaetial.screen.set_replace.title": "Set/Replace",
+    "gui.spaetial.screen.change_material.title": "Change Material",
+    "gui.spaetial.screen.filter_selection.title": "Filter Selection",
+    "gui.spaetial.screen.create_schematic.title": "Create Schematic",
+    "gui.spaetial.screen.selection_wheel.shape.title": "Shape",
+    "gui.spaetial.screen.selection_wheel.paste.title": "Paste",
+    "gui.spaetial.screen.selection_wheel.selection_context_menu.title": "Selection",
+
+    "gui.spaetial.screen.confirm_action.title.operation": "Confirm '%s' operation",
+    "gui.spaetial.screen.confirm_action.title.undo": "Confirm undo",
+    "gui.spaetial.screen.confirm_action.title.redo": "Confirm redo",
+    "gui.spaetial.screen.confirm_action.max_volume": "Max volume:  ",
+    "gui.spaetial.screen.confirm_action.volume": "Volume:  ",
+    "gui.spaetial.screen.confirm_action.op_warning": "[!] Operator permission required to proceed",
+    "gui.spaetial.screen.confirm_action.is_skippable": "Skip saving to history in order to complete the operation faster",
+    "gui.spaetial.screen.confirm_action.dont_save": "Confirm and skip saving",
+
+    "gui.spaetial.cancel": "Cancel",
+    "gui.spaetial.confirm": "Confirm",
+
+    "system.spaetial.message.mod_on": "Spaetial is ON",
+    "system.spaetial.message.mod_off": "Spaetial is OFF"
+}

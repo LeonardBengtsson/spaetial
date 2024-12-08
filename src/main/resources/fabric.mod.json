@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "spaetial",
+	"version": "${version}",
+
+	"name": "Spaetial",
+	"description": "World editing and schematics mod optimized for speed and ease of use",
+	"authors": [ "Leonard Bengtsson" ],
+	"contact": {},
+
+	"license": "MIT",
+	"icon": "assets/spaetial/icon.png",
+
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"spaetial.Spaetial"
+		],
+		"client": [
+			"spaetial.SpaetialClient"
+		]
+	},
+	"mixins": [
+		"spaetial.mixins.json",
+		{
+			"config": "spaetial.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
