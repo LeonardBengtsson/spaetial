@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import spaetial.ClientEvents;
 
+@Deprecated
 @Mixin(GameRenderer.class)
 abstract public class GameRendererMixin {
     @Shadow @Final MinecraftClient client;
@@ -35,9 +36,9 @@ abstract public class GameRendererMixin {
         Camera camera, Entity entity, float float_1, double double_0, Matrix4f matrix4f_0, MatrixStack matrixStack,
         float float_3, float float_4, Quaternionf quaternionf, Matrix4f matrix4f_1
     ) {
-        var matrices = new MatrixStack();
-        matrices.multiplyPositionMatrix(matrix4f_1);
-        ClientEvents.onRender(client, matrices, client.gameRenderer.getCamera());
+//        var matrices = new MatrixStack();
+//        matrices.multiplyPositionMatrix(matrix4f_1);
+//        ClientEvents.onRender(client, matrices, camera);
 
         {   // TODO temp testing
 
