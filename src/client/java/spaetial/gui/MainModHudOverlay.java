@@ -38,7 +38,7 @@ public class MainModHudOverlay implements HudRenderCallback {
 //        drawContext.drawTexture(TEST_TEXTURE, x, y, z, u, v, width, height, textureWidth, textureHeight);
         var state = ClientManager.getEditingState();
         if (state.getInteractionType().renderHud) {
-            drawContext.drawTextWrapped(client.textRenderer, Text.literal("Editing state: " + ClientManager.getEditingState().getDebugText()), 10, 10, windowWidth, 0xffffff);
+            drawContext.drawWrappedText(client.textRenderer, Text.literal("Editing state: " + ClientManager.getEditingState().getDebugText()), 10, 10, windowWidth, 0xffffff, true);
         }
         {
             // TODO DEBUG

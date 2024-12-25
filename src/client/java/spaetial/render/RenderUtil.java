@@ -46,7 +46,7 @@ public final class RenderUtil {
     }
 
     public static VertexConsumerProvider.Immediate preRenderRegion(MinecraftClient client, Camera camera, MatrixStack matrices, float tintR, float tintG, float tintB) {
-        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
+        RenderSystem.setShader(RenderSystem.getShader());
         RenderSystem.enableBlend();
 
         RenderSystem.enableDepthTest();
@@ -188,13 +188,13 @@ public final class RenderUtil {
     public static void drawBox(MinecraftClient client, MatrixStack matrices, Vec3d cameraPos, Box box, Color color) {
         float[] clr = color.getRGBComponents(null);
 
-        RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+        RenderSystem.setShader(RenderSystem.getShader());
         RenderSystem.enableBlend();
         RenderSystem.disableDepthTest();
 
-        var immediate = ((WorldRendererAccessor) client.worldRenderer).getBufferBuilders().getEntityVertexConsumers();
-        var vertexConsumer = immediate.getBuffer(RenderLayer.getLines());
-        WorldRenderer.drawBox(
+        VertexConsumerProvider.Immediate immediate = ((WorldRendererAccessor) client.worldRenderer).getBufferBuilders().getEntityVertexConsumers();
+        VertexConsumer vertexConsumer = immediate.getBuffer(RenderLayer.getLines());
+        VertexRendering.drawBox(
             matrices, vertexConsumer,
             box.minX - cameraPos.x,
             box.minY - cameraPos.y,
@@ -204,7 +204,7 @@ public final class RenderUtil {
             box.maxZ - cameraPos.z,
             clr[0], clr[1], clr[2], clr[3]
         );
-        immediate.draw();
+        immediate.draw(RenderLayer.getLines());
     }
 
     public static void drawFadingGrid(MinecraftClient client, MatrixStack matrices, Vec3d cameraPos, Vec3d centerPos, Direction.Axis axis, double radius, Color color) {
@@ -245,7 +245,7 @@ public final class RenderUtil {
         Vector3f normal = new Vector3f(i_vec).cross(j_vec).normalize();
         float nx = normal.x, ny = normal.y, nz = normal.z;
 
-        RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+        RenderSystem.setShader(RenderSystem.getShader());
         RenderSystem.enableBlend();
         var vertexConsumerProvider = ((WorldRendererAccessor) client.worldRenderer).getBufferBuilders().getEntityVertexConsumers();
         var vertexConsumer = vertexConsumerProvider.getBuffer(RenderLayer.getLines());
@@ -298,7 +298,7 @@ public final class RenderUtil {
     }
 
     public static void drawFading3dCross(MinecraftClient client, MatrixStack matrices, Vec3d cameraPos, Vec3d pos, double radius, Color color) {
-        RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+        RenderSystem.setShader(RenderSystem.getShader());
         RenderSystem.enableBlend();
         var vertexConsumerProvider = ((WorldRendererAccessor) client.worldRenderer).getBufferBuilders().getEntityVertexConsumers();
         var vertexConsumer = vertexConsumerProvider.getBuffer(RenderLayer.getLines());
@@ -329,7 +329,7 @@ public final class RenderUtil {
     }
 
     public static void drawSphereQuads(MinecraftClient client, MatrixStack matrices, Vec3d cameraPos, boolean invertibleNormals, Vec3d center, double radius, int resolution, Color color) {
-        RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+        RenderSystem.setShader(RenderSystem.getShader());
         RenderSystem.enableBlend();
         var vertexConsumerProvider = ((WorldRendererAccessor) client.worldRenderer).getBufferBuilders().getEntityVertexConsumers();
         var vertexConsumer = vertexConsumerProvider.getBuffer(RenderLayer.getDebugQuads());

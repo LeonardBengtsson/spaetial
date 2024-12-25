@@ -17,7 +17,7 @@ public record ToggleSharingSchematicPlacementC2SPacket(UUID placementId, boolean
     public static final Id<ToggleSharingSchematicPlacementC2SPacket> ID = new Id<>(Spaetial.id("toggle_sharing_schematic_placement"));
     public static final PacketCodec<RegistryByteBuf, ToggleSharingSchematicPlacementC2SPacket> PACKET_CODEC = PacketCodec.tuple(
         Uuids.PACKET_CODEC, ToggleSharingSchematicPlacementC2SPacket::placementId,
-        PacketCodecs.BOOL, ToggleSharingSchematicPlacementC2SPacket::toggle,
+        PacketCodecs.BOOLEAN, ToggleSharingSchematicPlacementC2SPacket::toggle,
         ToggleSharingSchematicPlacementC2SPacket::new
     );
 }

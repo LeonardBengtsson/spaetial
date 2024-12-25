@@ -2,41 +2,29 @@ package spaetial.render.entity;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.ModelWithArms;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Arm;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
-import spaetial.Spaetial;
-import spaetial.entity.BuilderAllayEntity;
 
-public class BuilderAllayEntityModel extends SinglePartEntityModel<BuilderAllayEntity> implements ModelWithArms {
-    private final ModelPart root;
+public class BuilderAllayEntityModel extends EntityModel<BuilderAllayEntityRenderState> implements ModelWithArms {
     private final ModelPart head;
     private final ModelPart body;
     private final ModelPart rightArm;
     private final ModelPart leftArm;
     private final ModelPart rightWing;
     private final ModelPart leftWing;
-    private static final float field_38999 = 0.7853982F;
-    private static final float field_39000 = -1.134464F;
-    private static final float field_39001 = -1.0471976F;
 
     public BuilderAllayEntityModel(ModelPart root) {
-        super(RenderLayer::getEntityTranslucent);
-        this.root = root.getChild("root");
+        super(root.getChild("root"), RenderLayer::getEntityTranslucent);
         this.head = this.root.getChild("head");
         this.body = this.root.getChild("body");
         this.rightArm = this.body.getChild("right_arm");
         this.leftArm = this.body.getChild("left_arm");
         this.rightWing = this.body.getChild("right_wing");
         this.leftWing = this.body.getChild("left_wing");
-    }
-
-    @Override
-    public ModelPart getPart() {
-        return this.root;
     }
 
     public static TexturedModelData getTexturedModelData() {
@@ -53,34 +41,38 @@ public class BuilderAllayEntityModel extends SinglePartEntityModel<BuilderAllayE
     }
 
     @Override
-    public void setAngles(BuilderAllayEntity builderAllayEntity, float f, float g, float h, float i, float j) {
-        this.getPart().traverse().forEach(ModelPart::resetTransform);
-        float k = h * 20.0F * 0.017453292F + f;
-        float l = MathHelper.cos(k) * 3.1415927F * 0.15F + g;
-        float m = h - (float) builderAllayEntity.age;
-        float n = h * 9.0F * 0.017453292F;
-        float o = Math.min(g / 0.3F, 1.0F);
-        float p = 1.0F - o;
-        float q = builderAllayEntity.method_43397(m);
-        float r;
-        float s;
-        float t;
+    public void setAngles(BuilderAllayEntityRenderState renderState) {
+        super.setAngles(renderState);
+        float f = renderState.limbAmplitudeMultiplier;
+        float g = renderState.limbFrequency;
+        float h = renderState.age * 20.0F * 0.017453292F + g;
+        float i = MathHelper.cos(h) * 3.1415927F * 0.15F + f;
+        float j = renderState.age * 9.0F * 0.017453292F;
+        float k = Math.min(f / 0.3F, 1.0F);
+        float l = 1.0F - k;
+        float m = renderState.itemHoldAnimationTicks;
+        float n;
+        float o;
+        float p;
 
-        this.rightWing.pitch = 0.43633232F * (1.0F - o);
-        this.rightWing.yaw = -0.7853982F + l;
-        this.leftWing.pitch = 0.43633232F * (1.0F - o);
-        this.leftWing.yaw = 0.7853982F - l;
-        this.body.pitch = o * 0.7853982F;
-        r = q * MathHelper.lerp(o, -1.0471976F, -1.134464F);
-        this.root.pivotY += (float)Math.cos((double)n) * 0.25F * p;
-        this.rightArm.pitch = r;
-        this.leftArm.pitch = r;
-        s = p * (1.0F - q);
-        t = 0.43633232F - MathHelper.cos(n + 4.712389F) * 3.1415927F * 0.075F * s;
-        this.leftArm.roll = -t;
-        this.rightArm.roll = t;
-        this.rightArm.yaw = 0.27925268F * q;
-        this.leftArm.yaw = -0.27925268F * q;
+        this.head.pitch = renderState.pitch * 0.017453292F;
+        this.head.yaw = renderState.yawDegrees * 0.017453292F;
+
+        this.rightWing.pitch = 0.43633232F * (1.0F - k);
+        this.rightWing.yaw = -0.7853982F + i;
+        this.leftWing.pitch = 0.43633232F * (1.0F - k);
+        this.leftWing.yaw = 0.7853982F - i;
+        this.body.pitch = k * 0.7853982F;
+        n = m * MathHelper.lerp(k, -1.0471976F, -1.134464F);
+        this.root.pivotY += (float) Math.cos(j) * 0.25F * l;
+        this.rightArm.pitch = n;
+        this.leftArm.pitch = n;
+        o = l * (1.0F - m);
+        p = 0.43633232F - MathHelper.cos(j + 4.712389F) * 3.1415927F * 0.075F * o;
+        this.leftArm.roll = -p;
+        this.rightArm.roll = p;
+        this.rightArm.yaw = 0.27925268F * m;
+        this.leftArm.yaw = -0.27925268F * m;
     }
 
     @Override

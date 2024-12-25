@@ -13,7 +13,7 @@ public record ConfirmOperationActionC2SPacket(boolean skipHistory) implements Cu
     }
     public static final Id<ConfirmOperationActionC2SPacket> ID = new Id<>(Spaetial.id("confirm_operation_action"));
     public static final PacketCodec<PacketByteBuf, ConfirmOperationActionC2SPacket> PACKET_CODEC = PacketCodec.tuple(
-        PacketCodecs.BOOL, ConfirmOperationActionC2SPacket::skipHistory,
+        PacketCodecs.BOOLEAN, ConfirmOperationActionC2SPacket::skipHistory,
         ConfirmOperationActionC2SPacket::new
     );
 }

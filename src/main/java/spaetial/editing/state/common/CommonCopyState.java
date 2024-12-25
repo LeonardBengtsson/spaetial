@@ -33,7 +33,7 @@ public record CommonCopyState(
         RegistryKey.createPacketCodec(RegistryKeys.WORLD), state -> ((CommonCopyState) state).sourceDim,
         Selection.PACKET_CODEC, state -> ((CommonCopyState) state).selection,
         PacketCodecsUtil.createEnum(CopyStateMode.class), state -> ((CommonCopyState) state).mode,
-        PacketCodecs.BOOL, state -> ((CommonCopyState) state).isCutMode,
+        PacketCodecs.BOOLEAN, state -> ((CommonCopyState) state).isCutMode,
         RegistryKey.createPacketCodec(RegistryKeys.WORLD), state -> ((CommonCopyState) state).destDim,
         BlockPos.PACKET_CODEC, state -> ((CommonCopyState) state).delta,
         PacketCodecs.INTEGER, state -> ((CommonCopyState) state).lineStackSize,

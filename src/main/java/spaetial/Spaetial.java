@@ -11,6 +11,8 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -80,7 +82,7 @@ public final class Spaetial implements ModInitializer {
 
 	public static final String BUILDER_ALLAY_SPAWN_EGG_ITEM_ID = "builder_allay_spawn_egg";
 	public static final Item BUILDER_ALLAY_SPAWN_EGG_ITEM = Registry.register(Registries.ITEM, Spaetial.id(BUILDER_ALLAY_SPAWN_EGG_ITEM_ID),
-			new SpawnEggItem(BuilderAllayEntity.ENTITY_TYPE, 0x00fadf32, 0x44dddd, new Item.Settings()));
+			new SpawnEggItem(BuilderAllayEntity.ENTITY_TYPE, new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Spaetial.id(BUILDER_ALLAY_SPAWN_EGG_ITEM_ID)))));
 
 	@Override
 	public void onInitialize() {

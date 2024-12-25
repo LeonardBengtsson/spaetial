@@ -27,12 +27,12 @@ public record ServerSideClientConfig(
     );
 
     public static final PacketCodec<PacketByteBuf, ServerSideClientConfig> PACKET_CODEC = PacketCodecsUtil.tuple(
-        PacketCodecs.BOOL, ServerSideClientConfig::participatesInMultiplayerCache,
-        PacketCodecs.BOOL, ServerSideClientConfig::suppressOperationUpdates,
-        PacketCodecs.BOOL, ServerSideClientConfig::suppressPlayerUpdates,
-        PacketCodecs.BOOL, ServerSideClientConfig::forcedBlockPlacement,
-        PacketCodecs.BOOL, ServerSideClientConfig::suppressPlayerUpdates,
-        PacketCodecs.BOOL, ServerSideClientConfig::farReach,
+        PacketCodecs.BOOLEAN, ServerSideClientConfig::participatesInMultiplayerCache,
+        PacketCodecs.BOOLEAN, ServerSideClientConfig::suppressOperationUpdates,
+        PacketCodecs.BOOLEAN, ServerSideClientConfig::suppressPlayerUpdates,
+        PacketCodecs.BOOLEAN, ServerSideClientConfig::forcedBlockPlacement,
+        PacketCodecs.BOOLEAN, ServerSideClientConfig::suppressPlayerUpdates,
+        PacketCodecs.BOOLEAN, ServerSideClientConfig::farReach,
         PacketCodecs.DOUBLE, ServerSideClientConfig::farReachDistance,
         PacketCodecs.DOUBLE, ServerSideClientConfig::flySpeed,
         ServerSideClientConfig::new

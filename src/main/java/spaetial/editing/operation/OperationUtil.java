@@ -6,6 +6,7 @@ import net.minecraft.server.world.ChunkLevelType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.profiler.Profiler;
+import net.minecraft.util.profiler.Profilers;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.chunk.WorldChunk;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
@@ -55,8 +56,8 @@ public class OperationUtil {
             world.getChunkManager().getLightingProvider().setSectionStatus(pos, isEmpty);
         }
 
-        if (ChunkLightProvider.needsLightUpdate(world, pos, oldState, state)) {
-            Profiler profiler = world.getProfiler();
+        if (ChunkLightProvider.needsLightUpdate(oldState, state)) {
+            Profiler profiler = Profilers.get();
             profiler.push("updateSkyLightSources");
             chunk.getChunkSkyLight().isSkyLightAccessible(world, i, pos.getY(), k);
             profiler.swap("queueCheckLight");
@@ -90,7 +91,7 @@ public class OperationUtil {
                 ((WorldChunkInvoker) chunk).invokeUpdateTicker(blockEntity);
             }
         }
-        chunk.setNeedsSaving(true);
+        chunk.markNeedsSaving();
 
         BlockState newState = world.getBlockState(pos);
         if (newState == state) {
