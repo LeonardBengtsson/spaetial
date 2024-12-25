@@ -25,7 +25,7 @@ public record RequestCopyOperationC2SPacket(Selection selection, RegistryKey<Wor
     public static final PacketCodec<RegistryByteBuf, RequestCopyOperationC2SPacket> PACKET_CODEC = PacketCodec.<RegistryByteBuf, RequestCopyOperationC2SPacket, Selection, RegistryKey<World>, Boolean, Filter, UUID>tuple(
         Selection.PACKET_CODEC, RequestCopyOperationC2SPacket::selection,
         RegistryKey.createPacketCodec(RegistryKeys.WORLD), RequestCopyOperationC2SPacket::dim,
-        PacketCodecs.BOOL, RequestCopyOperationC2SPacket::cut,
+        PacketCodecs.BOOLEAN, RequestCopyOperationC2SPacket::cut,
         Filter.PACKET_CODEC, RequestCopyOperationC2SPacket::filter,
         PacketCodecsUtil.createNullable(PacketCodecsUtil.createBufMap(Uuids.PACKET_CODEC)), RequestCopyOperationC2SPacket::regionRequestId,
         RequestCopyOperationC2SPacket::new

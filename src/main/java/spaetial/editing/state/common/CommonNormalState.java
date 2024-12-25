@@ -17,7 +17,7 @@ public record CommonNormalState(RegistryKey<World> quickSetDim, BlockPos quickSe
         PacketCodecsUtil.createNullable(PacketCodecsUtil.createBufMap(RegistryKey.createPacketCodec(RegistryKeys.WORLD))), CommonNormalState::quickSetDim,
         PacketCodecsUtil.createNullable(PacketCodecsUtil.createBufMap(BlockPos.PACKET_CODEC)), CommonNormalState::quickSetPos1,
         PacketCodecsUtil.createNullable(PacketCodecsUtil.createBufMap(BlockPos.PACKET_CODEC)), CommonNormalState::quickSetPos2,
-        PacketCodecs.BOOL, state -> state.quickSetReplace,
+        PacketCodecs.BOOLEAN, state -> state.quickSetReplace,
         CommonNormalState::new
     );
 }

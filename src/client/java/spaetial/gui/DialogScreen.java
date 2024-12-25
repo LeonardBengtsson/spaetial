@@ -210,7 +210,7 @@ public class DialogScreen extends NavigableScreen {
     public void render(DrawContext context, int mx, int my, float delta) {
         if (client == null || client.options == null || client.world == null) return;
 
-        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
+        RenderSystem.setShader(RenderSystem.getShader());
         RenderSystem.enableBlend();
         RenderSystem.setShaderColor(1, 1, 1, 1);
 

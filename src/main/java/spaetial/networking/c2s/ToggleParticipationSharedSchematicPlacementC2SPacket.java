@@ -17,7 +17,7 @@ public record ToggleParticipationSharedSchematicPlacementC2SPacket(UUID placemen
     public static final Id<ToggleParticipationSharedSchematicPlacementC2SPacket> ID = new Id<>(Spaetial.id("toggle_participation_shared_schematic_placement"));
     public static final PacketCodec<RegistryByteBuf, ToggleParticipationSharedSchematicPlacementC2SPacket> PACKET_CODEC = PacketCodec.tuple(
         Uuids.PACKET_CODEC, ToggleParticipationSharedSchematicPlacementC2SPacket::placementId,
-        PacketCodecs.BOOL, ToggleParticipationSharedSchematicPlacementC2SPacket::toggle,
+        PacketCodecs.BOOLEAN, ToggleParticipationSharedSchematicPlacementC2SPacket::toggle,
         ToggleParticipationSharedSchematicPlacementC2SPacket::new
     );
 }

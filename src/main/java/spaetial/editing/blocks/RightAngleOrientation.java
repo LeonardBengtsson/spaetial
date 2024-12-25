@@ -1,6 +1,6 @@
 package spaetial.editing.blocks;
 
-import net.minecraft.data.client.VariantSettings.Rotation;
+import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.Direction;
 
 /**
@@ -25,101 +25,101 @@ import net.minecraft.util.math.Direction;
  * </ul>
  */
 public enum RightAngleOrientation {
-    SOUTH_DOWN(0, false, Direction.SOUTH, Rotation.R0
+    SOUTH_DOWN(0, false, Direction.SOUTH, BlockRotation.NONE
             ),
-    SOUTH_DOWN_FLIPPED(1, true, Direction.SOUTH, Rotation.R0,
+    SOUTH_DOWN_FLIPPED(1, true, Direction.SOUTH, BlockRotation.NONE,
             RightAngleTransformation.FLIP_X),
-    SOUTH_LEFT(2, false, Direction.SOUTH, Rotation.R90,
+    SOUTH_LEFT(2, false, Direction.SOUTH, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Z_270),
-    SOUTH_LEFT_FLIPPED(3, true, Direction.SOUTH, Rotation.R90,
+    SOUTH_LEFT_FLIPPED(3, true, Direction.SOUTH, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.FLIP_X, RightAngleTransformation.ROTATE_Z_270),
-    SOUTH_UP(4, false, Direction.SOUTH, Rotation.R180,
+    SOUTH_UP(4, false, Direction.SOUTH, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_Z_180),
-    SOUTH_UP_FLIPPED(5, true, Direction.SOUTH, Rotation.R180,
+    SOUTH_UP_FLIPPED(5, true, Direction.SOUTH, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.FLIP_X, RightAngleTransformation.ROTATE_Z_180),
-    SOUTH_RIGHT(6, false, Direction.SOUTH, Rotation.R270,
+    SOUTH_RIGHT(6, false, Direction.SOUTH, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Z_90),
-    SOUTH_RIGHT_FLIPPED(7, true, Direction.SOUTH, Rotation.R270,
+    SOUTH_RIGHT_FLIPPED(7, true, Direction.SOUTH, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.FLIP_X, RightAngleTransformation.ROTATE_Z_90),
-    WEST_DOWN(8, false, Direction.WEST, Rotation.R0,
+    WEST_DOWN(8, false, Direction.WEST, BlockRotation.NONE,
             RightAngleTransformation.ROTATE_Y_90),
-    WEST_DOWN_FLIPPED(9, true, Direction.WEST, Rotation.R0,
+    WEST_DOWN_FLIPPED(9, true, Direction.WEST, BlockRotation.NONE,
             RightAngleTransformation.FLIP_X, RightAngleTransformation.ROTATE_Y_90),
-    WEST_LEFT(10, false, Direction.WEST, Rotation.R90,
+    WEST_LEFT(10, false, Direction.WEST, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.ROTATE_X_90),
-    WEST_LEFT_FLIPPED(11, true, Direction.WEST, Rotation.R90,
+    WEST_LEFT_FLIPPED(11, true, Direction.WEST, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_X_90),
-    WEST_UP(12, false, Direction.WEST, Rotation.R180,
+    WEST_UP(12, false, Direction.WEST, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.ROTATE_X_180),
-    WEST_UP_FLIPPED(13, true, Direction.WEST, Rotation.R180,
+    WEST_UP_FLIPPED(13, true, Direction.WEST, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.FLIP_Y),
-    WEST_RIGHT(14, false, Direction.WEST, Rotation.R270,
+    WEST_RIGHT(14, false, Direction.WEST, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.ROTATE_X_270),
-    WEST_RIGHT_FLIPPED(15, true, Direction.WEST, Rotation.R270,
+    WEST_RIGHT_FLIPPED(15, true, Direction.WEST, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_X_270),
-    NORTH_DOWN(16, false, Direction.NORTH, Rotation.R0,
+    NORTH_DOWN(16, false, Direction.NORTH, BlockRotation.NONE,
             RightAngleTransformation.ROTATE_Y_180),
-    NORTH_DOWN_FLIPPED(17, true, Direction.NORTH, Rotation.R0,
+    NORTH_DOWN_FLIPPED(17, true, Direction.NORTH, BlockRotation.NONE,
             RightAngleTransformation.FLIP_Z),
-    NORTH_LEFT(18, false, Direction.NORTH, Rotation.R90,
+    NORTH_LEFT(18, false, Direction.NORTH, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_180, RightAngleTransformation.ROTATE_Z_90),
-    NORTH_LEFT_FLIPPED(19, true, Direction.NORTH, Rotation.R90,
+    NORTH_LEFT_FLIPPED(19, true, Direction.NORTH, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Z_90, RightAngleTransformation.FLIP_Z),
-    NORTH_UP(20, false, Direction.NORTH, Rotation.R180,
+    NORTH_UP(20, false, Direction.NORTH, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_X_180),
-    NORTH_UP_FLIPPED(21, true, Direction.NORTH, Rotation.R180,
+    NORTH_UP_FLIPPED(21, true, Direction.NORTH, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_X_180, RightAngleTransformation.FLIP_X),
-    NORTH_RIGHT(22, false, Direction.NORTH, Rotation.R270,
+    NORTH_RIGHT(22, false, Direction.NORTH, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_180, RightAngleTransformation.ROTATE_Z_270),
-    NORTH_RIGHT_FLIPPED(23, true, Direction.NORTH, Rotation.R270,
+    NORTH_RIGHT_FLIPPED(23, true, Direction.NORTH, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Z_270, RightAngleTransformation.FLIP_Z),
-    EAST_DOWN(24, false, Direction.EAST, Rotation.R0,
+    EAST_DOWN(24, false, Direction.EAST, BlockRotation.NONE,
             RightAngleTransformation.ROTATE_Y_270),
-    EAST_DOWN_FLIPPED(25, true, Direction.EAST, Rotation.R0,
+    EAST_DOWN_FLIPPED(25, true, Direction.EAST, BlockRotation.NONE,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.FLIP_Z),
-    EAST_LEFT(26, false, Direction.EAST, Rotation.R90,
+    EAST_LEFT(26, false, Direction.EAST, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.ROTATE_X_270),
-    EAST_LEFT_FLIPPED(27, true, Direction.EAST, Rotation.R90,
+    EAST_LEFT_FLIPPED(27, true, Direction.EAST, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_X_270),
-    EAST_UP(28, false, Direction.EAST, Rotation.R180,
+    EAST_UP(28, false, Direction.EAST, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.ROTATE_X_180),
-    EAST_UP_FLIPPED(29, true, Direction.EAST, Rotation.R180,
+    EAST_UP_FLIPPED(29, true, Direction.EAST, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.FLIP_Y),
-    EAST_RIGHT(30, false, Direction.EAST, Rotation.R270,
+    EAST_RIGHT(30, false, Direction.EAST, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.ROTATE_X_90),
-    EAST_RIGHT_FLIPPED(31, true, Direction.EAST, Rotation.R270,
+    EAST_RIGHT_FLIPPED(31, true, Direction.EAST, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_X_90),
-    DOWN_DOWN(32, false, Direction.DOWN, Rotation.R0,
+    DOWN_DOWN(32, false, Direction.DOWN, BlockRotation.NONE,
             RightAngleTransformation.ROTATE_Y_180, RightAngleTransformation.ROTATE_X_90),
-    DOWN_DOWN_FLIPPED(33, true, Direction.DOWN, Rotation.R0,
+    DOWN_DOWN_FLIPPED(33, true, Direction.DOWN, BlockRotation.NONE,
             RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_X_90),
-    DOWN_LEFT(34, false, Direction.DOWN, Rotation.R90,
+    DOWN_LEFT(34, false, Direction.DOWN, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.ROTATE_Z_90),
-    DOWN_LEFT_FLIPPED(35, true, Direction.DOWN, Rotation.R90,
+    DOWN_LEFT_FLIPPED(35, true, Direction.DOWN, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_Z_90),
-    DOWN_UP(36, false, Direction.DOWN, Rotation.R180,
+    DOWN_UP(36, false, Direction.DOWN, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_X_270),
-    DOWN_UP_FLIPPED(37, true, Direction.DOWN, Rotation.R180,
+    DOWN_UP_FLIPPED(37, true, Direction.DOWN, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.FLIP_X, RightAngleTransformation.ROTATE_X_270),
-    DOWN_RIGHT(38, false, Direction.DOWN, Rotation.R270,
+    DOWN_RIGHT(38, false, Direction.DOWN, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.ROTATE_Z_270),
-    DOWN_RIGHT_FLIPPED(39, true, Direction.DOWN, Rotation.R270,
+    DOWN_RIGHT_FLIPPED(39, true, Direction.DOWN, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_Z_270),
-    UP_DOWN(40, false, Direction.UP, Rotation.R0,
+    UP_DOWN(40, false, Direction.UP, BlockRotation.NONE,
             RightAngleTransformation.ROTATE_X_90),
-    UP_DOWN_FLIPPED(41, true, Direction.UP, Rotation.R0,
+    UP_DOWN_FLIPPED(41, true, Direction.UP, BlockRotation.NONE,
             RightAngleTransformation.FLIP_X, RightAngleTransformation.ROTATE_X_90),
-    UP_LEFT(42, false, Direction.UP, Rotation.R90,
+    UP_LEFT(42, false, Direction.UP, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.ROTATE_Z_270),
-    UP_LEFT_FLIPPED(43, true, Direction.UP, Rotation.R90,
+    UP_LEFT_FLIPPED(43, true, Direction.UP, BlockRotation.CLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_270, RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_Z_270),
-    UP_UP(44, false, Direction.UP, Rotation.R180,
+    UP_UP(44, false, Direction.UP, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.ROTATE_Y_180, RightAngleTransformation.ROTATE_X_270),
-    UP_UP_FLIPPED(45, true, Direction.UP, Rotation.R180,
+    UP_UP_FLIPPED(45, true, Direction.UP, BlockRotation.CLOCKWISE_180,
             RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_X_270),
-    UP_RIGHT(46, false, Direction.UP, Rotation.R270,
+    UP_RIGHT(46, false, Direction.UP, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.ROTATE_Z_90),
-    UP_RIGHT_FLIPPED(47, true, Direction.UP, Rotation.R270,
+    UP_RIGHT_FLIPPED(47, true, Direction.UP, BlockRotation.COUNTERCLOCKWISE_90,
             RightAngleTransformation.ROTATE_Y_90, RightAngleTransformation.FLIP_Z, RightAngleTransformation.ROTATE_Z_90);
 
     public final int id;
@@ -127,12 +127,12 @@ public enum RightAngleOrientation {
     public final Direction localForwards;
     public final Direction localDown;
     public final Direction localRight;
-    private final Rotation rollRotation;
+    private final BlockRotation rollRotation;
     public final RightAngleTransformation[] requiredTransformations;
 
     public static final RightAngleOrientation DEFAULT = SOUTH_DOWN;
 
-    RightAngleOrientation(int id, boolean flipped, Direction forwards, Rotation rollRotation, RightAngleTransformation... requiredTransformations) {
+    RightAngleOrientation(int id, boolean flipped, Direction forwards, BlockRotation rollRotation, RightAngleTransformation... requiredTransformations) {
         this.id = id;
         this.flipped = flipped;
         this.localForwards = forwards;
@@ -140,21 +140,21 @@ public enum RightAngleOrientation {
             case DOWN, UP -> rotate(Direction.SOUTH, forwards, rollRotation);
             case NORTH, SOUTH, WEST, EAST -> rotate(Direction.DOWN, forwards, rollRotation);
         };
-        this.localRight = rotate(this.localForwards, this.localDown, flipped ? Rotation.R90 : Rotation.R270);
+        this.localRight = rotate(this.localForwards, this.localDown, flipped ? BlockRotation.CLOCKWISE_90 : BlockRotation.COUNTERCLOCKWISE_90);
         this.rollRotation = rollRotation;
         this.requiredTransformations = requiredTransformations;
     }
 
-    private static Direction rotate(Direction dir, Direction around, Rotation rot) {
+    private static Direction rotate(Direction dir, Direction around, BlockRotation rot) {
         return switch (rot) {
-            case R0 -> dir;
-            case R180 -> dir.getAxis() == around.getAxis() ? dir : dir.getOpposite();
-            case R90 -> {
+            case NONE -> dir;
+            case CLOCKWISE_180 -> dir.getAxis() == around.getAxis() ? dir : dir.getOpposite();
+            case CLOCKWISE_90 -> {
                 // TODO test that this is correct
                 var axis = around.getAxis();
                 yield around.getDirection().offset() == 1 ? dir.rotateClockwise(axis) : dir.rotateCounterclockwise(axis);
             }
-            case R270 -> {
+            case COUNTERCLOCKWISE_90 -> {
                 var axis = around.getAxis();
                 yield around.getDirection().offset() == 1 ? dir.rotateCounterclockwise(axis) : dir.rotateClockwise(axis);
             }
@@ -174,7 +174,7 @@ public enum RightAngleOrientation {
         return ID_SORTED[id];
     }
 
-    public static RightAngleOrientation get(boolean flipped, Direction direction, Rotation rollRotation) {
+    public static RightAngleOrientation get(boolean flipped, Direction direction, BlockRotation rollRotation) {
         int d = switch (direction) {
             case SOUTH -> 0;
             case WEST -> 1;
@@ -184,10 +184,10 @@ public enum RightAngleOrientation {
             case UP -> 5;
         };
         int r = switch (rollRotation) {
-            case R0 -> 0;
-            case R90 -> 1;
-            case R180 -> 2;
-            case R270 -> 3;
+            case NONE -> 0;
+            case CLOCKWISE_90 -> 1;
+            case CLOCKWISE_180 -> 2;
+            case COUNTERCLOCKWISE_90 -> 3;
         };
         return RightAngleOrientation.get((d << 3) | (r << 1) | (flipped ? 0x1 : 0x0));
     }

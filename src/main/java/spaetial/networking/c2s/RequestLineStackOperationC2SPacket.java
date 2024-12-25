@@ -24,7 +24,7 @@ public record RequestLineStackOperationC2SPacket(Selection selection, RegistryKe
         RegistryKey.createPacketCodec(RegistryKeys.WORLD), RequestLineStackOperationC2SPacket::sourceDim,
         RegistryKey.createPacketCodec(RegistryKeys.WORLD), RequestLineStackOperationC2SPacket::destDim,
         BlockPos.PACKET_CODEC, RequestLineStackOperationC2SPacket::delta,
-        PacketCodecs.BOOL, RequestLineStackOperationC2SPacket::move,
+        PacketCodecs.BOOLEAN, RequestLineStackOperationC2SPacket::move,
         Filter.PACKET_CODEC, RequestLineStackOperationC2SPacket::sourceFilter,
         Filter.PACKET_CODEC, RequestLineStackOperationC2SPacket::destinationFilter,
         PacketCodecs.INTEGER, RequestLineStackOperationC2SPacket::stackSize,

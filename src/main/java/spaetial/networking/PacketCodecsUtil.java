@@ -11,6 +11,7 @@ import net.minecraft.nbt.NbtHelper;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
@@ -131,7 +132,7 @@ public final class PacketCodecsUtil {
     public static final PacketCodec<PacketByteBuf, BlockState> BLOCK_STATE = new PacketCodec<>() {
         @Override
         public BlockState decode(PacketByteBuf buf) {
-            return NbtHelper.toBlockState(Registries.BLOCK.getReadOnlyWrapper(), Objects.requireNonNull(buf.readNbt()));
+            return NbtHelper.toBlockState(Registries.BLOCK, Objects.requireNonNull(buf.readNbt()));
         }
 
         @Override

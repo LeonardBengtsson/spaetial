@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.SimpleInventory;
@@ -26,10 +26,11 @@ import org.jetbrains.annotations.Nullable;
 import spaetial.Spaetial;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class BuilderAllayEntity extends PathAwareEntity implements InventoryOwner, Ownable {
+public class BuilderAllayEntity extends AllayEntity implements InventoryOwner, Ownable {
 
     private static final String ENTITY_ID = "builder_allay";
     public static final EntityType<BuilderAllayEntity> ENTITY_TYPE = Registry.register(Registries.ENTITY_TYPE, Spaetial.id(ENTITY_ID),
@@ -46,7 +47,7 @@ public class BuilderAllayEntity extends PathAwareEntity implements InventoryOwne
     private float field_38936;
     private float field_38935;
 
-    protected BuilderAllayEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
+    protected BuilderAllayEntity(EntityType<BuilderAllayEntity> entityType, World world) {
         super(entityType, world);
         this.moveControl = new BuilderAllayMoveControl(this);
         this.noClip = true;
@@ -94,13 +95,9 @@ public class BuilderAllayEntity extends PathAwareEntity implements InventoryOwne
         owner = null;
     }
 
-    public void unShackle(UUID newOwner) {
+    public void unshackle(UUID newOwner) {
         shackled = false;
         owner = newOwner;
-    }
-
-    private boolean isHoldingItem() {
-        return !this.getStackInHand(Hand.MAIN_HAND).isEmpty();
     }
 
     @Override
@@ -205,7 +202,7 @@ public class BuilderAllayEntity extends PathAwareEntity implements InventoryOwne
 
     public static class BuilderAllayEntityType extends EntityType<BuilderAllayEntity> {
         public BuilderAllayEntityType(EntityFactory<BuilderAllayEntity> factory, SpawnGroup spawnGroup, boolean saveable, boolean summonable, boolean fireImmune, boolean spawnableFarFromPlayer, ImmutableSet<Block> canSpawnInside, EntityDimensions dimensions, float spawnBoxScale, int maxTrackDistance, int trackTickInterval, FeatureSet requiredFeatures) {
-            super(factory, spawnGroup, saveable, summonable, fireImmune, spawnableFarFromPlayer, canSpawnInside, dimensions, spawnBoxScale, maxTrackDistance, trackTickInterval, requiredFeatures);
+            super(factory, spawnGroup, saveable, summonable, fireImmune, spawnableFarFromPlayer, canSpawnInside, dimensions, spawnBoxScale, maxTrackDistance, trackTickInterval, Spaetial.translationKey("entity_type", "builder_allay"), Optional.empty(), requiredFeatures);
         }
 
         @Override
@@ -221,7 +218,7 @@ public class BuilderAllayEntity extends PathAwareEntity implements InventoryOwne
 
             // this is the entire reason for this subclass
             if (entity != null && player != null) {
-                entity.unShackle(player.getUuid());
+                entity.unshackle(player.getUuid());
             }
 
             return entity;

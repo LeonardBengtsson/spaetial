@@ -6,6 +6,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.render.GameRenderer;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.NarratorManager;
 import net.minecraft.client.util.math.MatrixStack;
@@ -176,7 +177,7 @@ public abstract class WheelScreen extends Screen {
     public void render(DrawContext context, int mx, int my, float delta) {
         // TODO dynamic scale so the menu renders correctly even when the window is smaller
 
-        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
+        RenderSystem.setShader(RenderSystem.getShader());
         RenderSystem.enableBlend();
         RenderSystem.setShaderColor(1, 1, 1, 1);
 
@@ -197,7 +198,7 @@ public abstract class WheelScreen extends Screen {
                 if (elements == 2) rotation -= Math.PI * .5;
                 matrices.multiply(new Quaternionf().rotateZ(rotation));
 
-                context.drawTexture(WHEEL_TEXTURES[elements - 1], (int) (-wheelSize * .5), (int) (-wheelSize * .5 - wheelOffset), 0, 0, intWheelSize, intWheelSize, intWheelSize, intWheelSize);
+                context.drawTexture(RenderLayer::getGuiTextured, WHEEL_TEXTURES[elements - 1], (int) (-wheelSize * .5), (int) (-wheelSize * .5 - wheelOffset), 0, 0, intWheelSize, intWheelSize, intWheelSize, intWheelSize);
 
                 matrices.multiply(new Quaternionf().rotateZ(-rotation));
 
@@ -211,7 +212,7 @@ public abstract class WheelScreen extends Screen {
                 int elementX = (int) (elementRadius * Math.cos(angle));
                 int elementY = (int) (elementRadius * Math.sin(angle));
 
-                context.drawTexture(elementTextures[i], elementX - textureSize / 2, elementY - textureSize / 2, 0, 0, textureSize, textureSize, textureSize, textureSize);
+                context.drawTexture(RenderLayer::getGuiTextured, elementTextures[i], elementX - textureSize / 2, elementY - textureSize / 2, 0, 0, textureSize, textureSize, textureSize, textureSize);
             }
         }
 
@@ -229,7 +230,7 @@ public abstract class WheelScreen extends Screen {
             matrices.multiply(new Quaternionf().rotateZ(rotation));
 
             RenderSystem.setShaderColor(ClientConfig.Persistent.getPrimaryColor().getRed() * 2 / 255f, ClientConfig.Persistent.getPrimaryColor().getGreen() * 2 / 255f, ClientConfig.Persistent.getPrimaryColor().getBlue() * 2 / 255f, 1);
-            context.drawTexture(WHEEL_TEXTURES_HOVER[elements - 1], (int) (-wheelSize * .5), (int) (-wheelSize * .5 - wheelOffset), 0, 0, intWheelSize, intWheelSize, intWheelSize, intWheelSize);
+            context.drawTexture(RenderLayer::getGuiTextured, WHEEL_TEXTURES_HOVER[elements - 1], (int) (-wheelSize * .5), (int) (-wheelSize * .5 - wheelOffset), 0, 0, intWheelSize, intWheelSize, intWheelSize, intWheelSize);
             RenderSystem.setShaderColor(1, 1, 1, 1);
 
             matrices.multiply(new Quaternionf().rotateZ(-rotation));
@@ -244,7 +245,7 @@ public abstract class WheelScreen extends Screen {
             int elementX = (int) (elementRadius * Math.cos(angle));
             int elementY = (int) (elementRadius * Math.sin(angle));
 
-            context.drawTexture(elementTextures[hoveredElement], elementX - textureSize / 2, elementY - textureSize / 2, 0, 0, textureSize, textureSize, textureSize, textureSize);
+            context.drawTexture(RenderLayer::getGuiTextured, elementTextures[hoveredElement], elementX - textureSize / 2, elementY - textureSize / 2, 0, 0, textureSize, textureSize, textureSize, textureSize);
         }
 
         matrices.pop();

@@ -23,7 +23,7 @@ public record OperationActionVolumeConfirmationPromptS2CPacket(
         PacketCodecsUtil.createEnum(OperationAction.class), OperationActionVolumeConfirmationPromptS2CPacket::action,
         PacketCodecs.INTEGER, OperationActionVolumeConfirmationPromptS2CPacket::volume,
         PacketCodecs.INTEGER, OperationActionVolumeConfirmationPromptS2CPacket::maxVolume,
-        PacketCodecs.BOOL, OperationActionVolumeConfirmationPromptS2CPacket::needsOperatorLevel,
+        PacketCodecs.BOOLEAN, OperationActionVolumeConfirmationPromptS2CPacket::needsOperatorLevel,
         PacketCodecsUtil.createNullable(PacketCodecsUtil.createEnum(OperationType.class)), OperationActionVolumeConfirmationPromptS2CPacket::operationType,
         OperationActionVolumeConfirmationPromptS2CPacket::new
     );

@@ -24,7 +24,7 @@ public record RequestCloneOperationC2SPacket(Selection selection, RegistryKey<Wo
         RegistryKey.createPacketCodec(RegistryKeys.WORLD), RequestCloneOperationC2SPacket::sourceDim,
         RegistryKey.createPacketCodec(RegistryKeys.WORLD), RequestCloneOperationC2SPacket::destDim,
         BlockPos.PACKET_CODEC, RequestCloneOperationC2SPacket::delta,
-        PacketCodecs.BOOL, RequestCloneOperationC2SPacket::move,
+        PacketCodecs.BOOLEAN, RequestCloneOperationC2SPacket::move,
         Filter.PACKET_CODEC, RequestCloneOperationC2SPacket::sourceFilter,
         Filter.PACKET_CODEC, RequestCloneOperationC2SPacket::destinationFilter,
         RequestCloneOperationC2SPacket::new
