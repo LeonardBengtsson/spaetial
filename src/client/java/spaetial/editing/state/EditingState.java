@@ -70,7 +70,7 @@ public abstract class EditingState implements TypeSupplier<EditingStateType>, In
      */
     // TODO change
     public static EditingState getDefault() {
-        return new NormalState();
+        return new TurnedOffState(new NormalState());
     }
 
     /**
