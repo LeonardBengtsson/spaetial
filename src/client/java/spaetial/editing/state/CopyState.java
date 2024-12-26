@@ -286,7 +286,7 @@ public class CopyState extends EditingState {
                     stackSpacingInPlane = null;
                     yield true;
                 } else if (volumeStackSizeInPlane != null) {
-                    var size = selection.getOuterBounds().getDimensions().add(volumeStackSpacing);
+                    var size = selection.getOuterBounds().getDimensions().add(1, 1, 1).add(volumeStackSpacing);
                     var offset = VecUtil.componentWiseDivision(volumeStackSizeInPlane.getCurrentOffset(), size);
                     if (!offset.equals(Vec3i.ZERO)) {
                         volumeStackSize = volumeStackSize.add(offset);
@@ -433,7 +433,7 @@ public class CopyState extends EditingState {
                     ClientManager.onEditingStateUpdate();
                 } else {
                     var newSpacing = changeVolumeStackSpacing(volumeStackSpacing, volumeStackSize, selection.getOuterBounds().getDimensions(), vec);
-                    if (volumeStackSpacing.equals(newSpacing)) yield false;
+                    if (volumeStackSpacing.equals(newSpacing)) yield true;
                     volumeStackSpacing = newSpacing;
                     ClientManager.onEditingStateUpdate();
                 }
@@ -485,7 +485,7 @@ public class CopyState extends EditingState {
                 stackSpacingInPlane.drawGrid(client, matrices, camera.getPos(), getOuterBounds(selection, lineStackSpacing, volumeStackSpacing, volumeStackSize), ClientConfig.Persistent.getSelectionColor(false));
             } else if (volumeStackSizeInPlane != null) {
                 volumeStackSizeInPlane.update(client.player);
-                var size = selection.getOuterBounds().getDimensions().add(volumeStackSpacing);
+                var size = selection.getOuterBounds().getDimensions().add(1, 1, 1).add(volumeStackSpacing);
                 var offset = VecUtil.componentWiseDivision(volumeStackSizeInPlane.getCurrentOffset(), size);
                 volumeStackSize = volumeStackSize.add(offset);
                 volumeStackSizeInPlane.drawGrid(client, matrices, camera.getPos(), getOuterBounds(selection, lineStackSpacing, volumeStackSpacing, volumeStackSize), ClientConfig.Persistent.getSelectionColor(false));
